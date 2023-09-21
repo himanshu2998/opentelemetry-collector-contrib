@@ -12,8 +12,8 @@ fi
 
 original_branch=$(git rev-parse --abbrev-ref HEAD)
 
-#branch="release/$module/$release_version"
-#git checkout -b "$branch"
+branch="release/$module/$release_version"
+git checkout -b "$branch"
 
 rm -rf "$module"
 cp -r "./extension/$module" "."
@@ -28,6 +28,11 @@ echo "listing files inside $module/"
 ls -lrt "$module/"
 ls -a "$module/"
 
+old_string="github.com/open-telemetry/opentelemetry-collector-contrib/extension/$module"
+new_string="github.com/himanshu2998/opentelemetry-collector-contrib/$module"
+find "$module/" -type f -name "*.go" -exec sed -i "s?$old_string?$new_string?g" {} +
+sed -i "s?$old_string?$new_string?g" "$module/go.mod"
+
 cd $module
 
 go mod tidy
@@ -35,15 +40,15 @@ go vet ./...
 
 cd ..
 
-#echo "git add files for $module"
-#git add .
-#
-#git commit -m "Commit release changes to branch $branch"
-#
-#tag_name="$module/$release_version"
-#echo "creating and pushing tag $tag_name"
-#git tag "$tag_name"
-#git push origin "$tag_name"
-#
-#echo "going back to $original_branch"
-#git checkout "$original_branch"
+echo "git add files for $module"
+git add .
+
+git commit -m "Commit release changes to branch $branch"
+
+tag_name="$module/$release_version"
+echo "creating and pushing tag $tag_name"
+git tag "$tag_name"
+git push origin "$tag_name"
+
+echo "going back to $original_branch"
+git checkout "$original_branch"
