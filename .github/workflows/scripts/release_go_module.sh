@@ -16,8 +16,7 @@ original_branch=$(git rev-parse --abbrev-ref HEAD)
 #git checkout -b "$branch"
 
 rm -rf "$module"
-
-cp -r "./extention/$module" "."
+cp -r "./extension/$module" "."
 
 for item in $items_to_remove
 do
