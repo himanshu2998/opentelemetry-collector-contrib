@@ -2,7 +2,7 @@ name: Release health check grpc repo as go module
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release-go-module:
