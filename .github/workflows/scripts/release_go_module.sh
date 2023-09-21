@@ -2,6 +2,7 @@
 
 release_version=$1
 module="healthcheckgrpcextention"
+items_to_remove=".chloggen .github cmd confmap connector examples exporter extention internal pkg processor receiver testbed .codecov.yml .gitattributes .gitignore .golangci.yml CHANGELOG.md CHANGELOG-API.md CONTRIBUTING.md go.mod go.sum LICENSE Makefile Makefile.Common README.md renovate.json versions.yaml $module/go.sum $module/Makefile"
 
 if [ -z "$release_version" ]
 then
@@ -18,9 +19,10 @@ rm -rf "$module"
 
 cp -r "./extention/$module" "."
 
-for d in "."; do
-    echo $d
-    rm -rf "$d"
+for item in $items_to_remove
+do
+  echo "deleting $item"
+  rm -r "$item"
 done
 
 echo "listing files inside $module/"
