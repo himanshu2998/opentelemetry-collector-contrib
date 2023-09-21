@@ -2,7 +2,7 @@
 
 release_version=$1
 module="healthcheckgrpcextention"
-items_to_remove=".chloggen .github cmd confmap connector examples exporter extention internal pkg processor receiver testbed .codecov.yml .gitattributes .gitignore .golangci.yml CHANGELOG.md CHANGELOG-API.md CONTRIBUTING.md go.mod go.sum LICENSE Makefile Makefile.Common README.md renovate.json versions.yaml $module/go.sum $module/Makefile"
+items_to_remove=".chloggen .github cmd confmap connector examples exporter extension internal pkg processor receiver testbed .codecov.yml .gitattributes .gitignore .golangci.yml CHANGELOG.md CHANGELOG-API.md CONTRIBUTING.md go.mod go.sum LICENSE Makefile Makefile.Common README.md renovate.json versions.yaml $module/go.sum $module/Makefile"
 
 if [ -z "$release_version" ]
 then
