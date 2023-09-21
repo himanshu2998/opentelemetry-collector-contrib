@@ -2,7 +2,7 @@ package healthcheckgrpcextention
 
 import (
 	"context"
-	"github.com/hotstar/distributed-tracing-collector/dt-collector-service/healthcheckgrpcextension/internal/metadata"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckgrpcextension/internal/metadata"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/config/configgrpc"
 	"go.opentelemetry.io/collector/config/confignet"

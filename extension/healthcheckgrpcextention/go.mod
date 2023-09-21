@@ -1,4 +1,4 @@
-module github.com/hotstar/distributed-tracing-collector/healthcheckgrpcextension
+module github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckgrpcextension
 
 go 1.20
 
