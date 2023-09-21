@@ -1,0 +1,28 @@
+name: Release health check grpc repo as go module
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release-go-module:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: [ 1.20.7 ]
+    steps:
+      - name: Cleaning up previous run Workspace
+        run: rm -rf
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup go ${{ matrix.go-version }}
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Releasing go module
+        run: |
+          echo "using version v0.0.$((${{ github.run_number }}))"
+          ./scripts/release_go_module.sh v0.0.$((${{ github.run_number }}))
