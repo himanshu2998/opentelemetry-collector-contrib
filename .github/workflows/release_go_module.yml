@@ -25,4 +25,4 @@ jobs:
       - name: Releasing go module
         run: |
           echo "using version v0.0.$((${{ github.run_number }}))"
-          ./scripts/release_go_module.sh v0.0.$((${{ github.run_number }}))
+          ./.github/workflows/scripts/release_go_module.sh v0.0.$((${{ github.run_number }}))
