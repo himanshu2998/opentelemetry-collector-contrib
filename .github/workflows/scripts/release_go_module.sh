@@ -31,7 +31,7 @@ ls -a "$module/"
 old_string="open-telemetry/opentelemetry-collector-contrib/extension"
 new_string="himanshu2998/opentelemetry-collector-contrib"
 find "$module/" -type f -name "*.go" -exec sed -i "s?$old_string?$new_string?g" {} +
-sed -i "s?$old_string?$new_string?g" ./extension/$module/go.mod
+sed -i "s?$old_string?$new_string?g" ./$module/go.mod
 
 cd $module
 
